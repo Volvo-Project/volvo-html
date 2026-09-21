@@ -1,254 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Volvo | Detalle del Producto</title>
   <meta name="description" content="Volvo, tienda online de videojuegos: detalle del producto.">
-
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
-
-<body>
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <a href="index.html" class="logo">
-              <img src="assets/images/volvo logo.png" alt="Logo volvo"
-                style="width: 200px;">
-            </a>
-
-            <ul class="nav">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="producto.html">Productos</a></li>
-              <li><a href="nosotros.html">Nosotros</a></li>
-              <li><a href="blogs.html">Blog</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
-              <li><a href="login.html">Iniciar sesión</a></li>
-              <li><a href="registro.html">Registrarse</a></li>
-              <li>
-                <a href="carrito.html" aria-label="Ver carrito de compras" class="cart-link">
-                  <i class="fa-solid fa-cart-shopping"></i><span id="carrito-contador" class="carrito-contador" hidden>0</span>
-                </a>
-              </li>
-            </ul>
-            <a class="menu-trigger">
-              <span>Menu</span>
-            </a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="page-heading header-text">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 id="prod-titulo-heading">Warframe</h1>
-          <span class="breadcrumb"><a href="index.html">Inicio</a> &gt; <a href="producto.html">Tienda</a> &gt;
-            <span id="prod-breadcrumb">Warframe</span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <main>
-
-  <div class="single-product section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="left-image">
-            <img id="prod-imagen" src="https://www.xtrafondos.com/wallpapers/vertical/warframe-unreal-tournament-6787.jpg" alt="Portada del juego">
-          </div>
-        </div>
-        <div class="col-lg-6 align-self-center">
-          <h4 id="prod-nombre">Warframe</h4>
-          <span class="price" id="prod-precio">Gratis</span>
-          <p id="prod-descripcion">Sumérgete en el universo de Warframe: acción cooperativa, personalización total de tu personaje y combates espectaculares. Compra hoy en Volvo y aprovecha nuestro precio de lanzamiento.</p>
-          <form id="qty" action="#" novalidate>
-            <label for="cantidad" class="visually-hidden">Cantidad a comprar</label>
-            <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" step="1" placeholder="1">
-            <button type="submit"><i class="fa fa-shopping-bag"></i> AGREGAR AL CARRITO</button>
-          </form><p id="aviso" class="aviso" hidden></p>
-          <ul>
-            <li><span>ID del Juego:</span> <span id="prod-id">WFRM-01</span></li>
-            <li><span>Género:</span> <span id="prod-genero">Acción, Cooperativo, Un Jugador</span></li>
-            <li><span>Etiquetas:</span> <span id="prod-etiquetas">Guerra, Batalla, Sci-Fi</span></li>
+<body class="d-flex flex-column min-vh-100">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="assets/images/volvo logo.png" alt="Volvo" width="110"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu-principal">
+          <form class="d-flex my-3 my-lg-0 ms-lg-3" id="search" action="producto.html" method="get" role="search">
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Busca tu juego" id="searchText" name="buscar" autocomplete="off" aria-label="Buscar juego">
+              <button class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+          </form>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="producto.html" aria-current="page">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="registro.html">Registrarse</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html" aria-label="Ver carrito de compras">Carrito <span id="carrito-contador" class="badge text-bg-warning" hidden>0</span></a></li>
           </ul>
         </div>
-        <div class="col-lg-12">
-          <div class="sep"></div>
-        </div>
       </div>
-    </div>
-  </div>
-  <section class="trailer section" id="seccion-trailer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2>Tráiler</h2>
-          <div class="video-wrapper">
-          <iframe
-            id="prod-trailer"
-            src="https://www.youtube.com/embed/MsbL8lFHrZI?autoplay=1&mute=1"
-            title="Tráiler del juego"
-            allow="autoplay; encrypted-media"
-            allowfullscreen>
-          </iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <div class="more-info">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="tabs-content">
-            <div class="row">
-              <div class="nav-wrapper ">
-                <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
-                      data-bs-target="#description" type="button" role="tab" aria-controls="description"
-                      aria-selected="true">Descripción</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                      type="button" role="tab" aria-controls="reviews" aria-selected="false">Opiniones (3)</button>
-                  </li>
-                </ul>
-              </div>
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="description" role="tabpanel"
-                  aria-labelledby="description-tab">
-                  <p>Volvo Tienda de Videojuegos te trae este título con envío rápido y soporte postventa. Revisa los
-                    requisitos del sistema y las condiciones de la promoción antes de comprar.</p>
-                  <br>
-                  <p>Este producto cuenta con garantía de cambio ante fallas de activación y acceso a nuestra comunidad
-                    de jugadores para resolver dudas técnicas.</p>
-                </div>
-                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                  <p>Los clientes destacan la rapidez del envío y la atención del equipo Volvo ante cualquier consulta.
-                    <br><br>Recuerda dejar tu propia opinión después de tu compra para ayudar a otros jugadores.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <main class="flex-grow-1">
+    <div class="container pt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="producto.html">Tienda</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="prod-breadcrumb">Warframe</li>
+        </ol>
+      </nav>
     </div>
-  </div>
 
-  <div class="section categories related-games">
-    <div class="container">
-      <div class="row">
+    <section class="container pb-4">
+      <div class="row g-4">
         <div class="col-lg-6">
-          <div class="section-heading">
-            <h6>Acción</h6>
-            <h2>Juegos Relacionados</h2>
-          </div>
+          <img id="prod-imagen" src="https://www.xtrafondos.com/wallpapers/vertical/warframe-unreal-tournament-6787.jpg" class="img-fluid rounded" alt="Portada del juego">
         </div>
-        <div class="col-lg-6">
-          <div class="main-button">
-            <a href="producto.html">Ver todos</a>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Acción</h4>
-            <div class="thumb">
-              <a href="detalle-producto.html?id=apex-legends"><img src="assets/images/apex-legends.jpg" alt="Portada de Apex Legends"></a>
+        <div class="col-lg-6 align-self-center">
+          <h1 id="prod-titulo-heading">Warframe</h1>
+          <p class="display-6 text-primary" id="prod-precio">Gratis</p>
+          <p id="prod-descripcion">Sumérgete en el universo de Warframe: acción cooperativa, personalización total de tu personaje y combates espectaculares. Compra hoy en Volvo y aprovecha nuestro precio de lanzamiento.</p>
+          <form id="qty" action="#" novalidate>
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <div class="input-group mb-3">
+              <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" step="1" placeholder="1">
+              <button class="btn btn-primary" type="submit">Agregar al carrito</button>
             </div>
+          </form>
+          <p id="aviso" class="alert" hidden></p>
+          <dl class="row mb-0">
+            <dt class="col-sm-4">ID del Juego</dt><dd class="col-sm-8" id="prod-id">WFRM-01</dd>
+            <dt class="col-sm-4">Género</dt><dd class="col-sm-8" id="prod-genero">Acción, Cooperativo, Un Jugador</dd>
+            <dt class="col-sm-4">Etiquetas</dt><dd class="col-sm-8" id="prod-etiquetas">Guerra, Batalla, Sci-Fi</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-4" id="seccion-trailer">
+      <h2>Tráiler</h2>
+      <div class="ratio ratio-16x9">
+        <iframe id="prod-trailer" src="https://www.youtube.com/embed/MsbL8lFHrZI?autoplay=1&mute=1" title="Tráiler del juego" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="container py-4">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Descripción</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Opiniones (3)</button>
+        </li>
+      </ul>
+      <div class="tab-content border border-top-0 rounded-bottom p-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+          <p>Volvo Tienda de Videojuegos te trae este título con envío rápido y soporte postventa. Revisa los requisitos del sistema y las condiciones de la promoción antes de comprar.</p>
+          <p class="mb-0">Este producto cuenta con garantía de cambio ante fallas de activación y acceso a nuestra comunidad de jugadores para resolver dudas técnicas.</p>
+        </div>
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab"></div>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <div class="mb-4">
+        <p class="text-uppercase text-primary fw-semibold small mb-1">Acción</p>
+        <h2>Juegos Relacionados</h2>
+      </div>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+        <div class="col">
+          <div class="card h-100">
+            <a href="detalle-producto.html?id=apex-legends"><div class="ratio ratio-1x1"><img src="assets/images/apex-legends.jpg" class="card-img-top object-fit-cover" alt="Portada de Apex Legends"></div></a>
+            <div class="card-body p-2 text-center"><small class="text-body-secondary">Acción</small></div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Aventura</h4>
-            <div class="thumb">
-              <a href="detalle-producto.html?id=lost-ark"><img src="assets/images/lost-ark.jpg" alt="Portada de Lost Ark"></a>
-            </div>
+        <div class="col">
+          <div class="card h-100">
+            <a href="detalle-producto.html?id=lost-ark"><div class="ratio ratio-1x1"><img src="assets/images/lost-ark.jpg" class="card-img-top object-fit-cover" alt="Portada de Lost Ark"></div></a>
+            <div class="card-body p-2 text-center"><small class="text-body-secondary">Aventura</small></div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Deportes</h4>
-            <div class="thumb">
-              <a href="detalle-producto.html?id=rocket-league"><img src="assets/images/rocket-league.jpg" alt="Portada de Rocket League"></a>
-            </div>
+        <div class="col">
+          <div class="card h-100">
+            <a href="detalle-producto.html?id=rocket-league"><div class="ratio ratio-1x1"><img src="assets/images/rocket-league.jpg" class="card-img-top object-fit-cover" alt="Portada de Rocket League"></div></a>
+            <div class="card-body p-2 text-center"><small class="text-body-secondary">Deportes</small></div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Estrategia</h4>
-            <div class="thumb">
-              <a href="detalle-producto.html?id=age-of-empires-iv"><img src="assets/images/age-of-empires-4.jpg" alt="Portada de Age of Empires IV"></a>
-            </div>
+        <div class="col">
+          <div class="card h-100">
+            <a href="detalle-producto.html?id=age-of-empires-iv"><div class="ratio ratio-1x1"><img src="assets/images/age-of-empires-4.jpg" class="card-img-top object-fit-cover" alt="Portada de Age of Empires IV"></div></a>
+            <div class="card-body p-2 text-center"><small class="text-body-secondary">Estrategia</small></div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Terror</h4>
-            <div class="thumb">
-              <a href="detalle-producto.html?id=dead-by-daylight"><img src="assets/images/dead-by-daylight.jpg" alt="Portada de Dead by Daylight"></a>
-            </div>
+        <div class="col">
+          <div class="card h-100">
+            <a href="detalle-producto.html?id=dead-by-daylight"><div class="ratio ratio-1x1"><img src="assets/images/dead-by-daylight.jpg" class="card-img-top object-fit-cover" alt="Portada de Dead by Daylight"></div></a>
+            <div class="card-body p-2 text-center"><small class="text-body-secondary">Terror</small></div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Acción</h4>
-            <div class="thumb">
-              <a href="detalle-producto.html?id=brawlhalla"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_600x900_2x.jpg" alt="Portada de Brawlhalla"></a>
-            </div>
+        <div class="col">
+          <div class="card h-100">
+            <a href="detalle-producto.html?id=brawlhalla"><div class="ratio ratio-1x1"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_600x900_2x.jpg" class="card-img-top object-fit-cover" alt="Portada de Brawlhalla"></div></a>
+            <div class="card-body p-2 text-center"><small class="text-body-secondary">Acción</small></div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
+    </section>
   </main>
 
-  <footer>
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
     <div class="container">
-        <div class="col-lg-12">
-            <p><a rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo. </a>Todos los derechos reservados.
-                Desarrollado por: <a rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares,</a>
-                <a rel="nofollow" href="https://github.com/Matyy98" target="_blank"> Matías Rodriguez</a> y
-                <a rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a></p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <h2 class="h5">Volvo</h2>
+          <p class="text-secondary mb-0">Tienda online de videojuegos digitales, con precios en pesos chilenos y entrega inmediata.</p>
         </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Tienda</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="producto.html">Todos los juegos</a></li>
+            <li><a class="link-light text-decoration-none" href="carrito.html">Carrito</a></li>
+            <li><a class="link-light text-decoration-none" href="blogs.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Ayuda</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="nosotros.html">Nosotros</a></li>
+            <li><a class="link-light text-decoration-none" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Cuenta</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="login.html">Iniciar sesión</a></li>
+            <li><a class="link-light text-decoration-none" href="registro.html">Registrarse</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="text-center text-secondary small mb-0">
+        <a class="link-secondary text-decoration-none" rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo.</a>
+        Todos los derechos reservados. Desarrollado por:
+        <a class="link-secondary" rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares</a>,
+        <a class="link-secondary" rel="nofollow" href="https://github.com/Matyy98" target="_blank">Matías Rodriguez</a> y
+        <a class="link-secondary" rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a>
+      </p>
     </div>
   </footer>
 
-  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/productos.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/sesion.js"></script>
-  <script src="assets/js/productos.js"></script>
   <script src="assets/js/detalle.js"></script>
   <script src="assets/js/carrito.js"></script>
-
 </body>
-
 </html>

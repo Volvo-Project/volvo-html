@@ -41,8 +41,8 @@ function renderizarTabla() {
       <td>$${p.precio.toLocaleString('es-CL')}</td>
       <td>${p.stock}</td>
       <td>
-        <a href="producto-form.html?id=${p.id}">Editar</a>
-        <button class="btn-eliminar" data-id="${p.id}">Eliminar</button>
+        <a class="btn btn-sm btn-outline-primary" href="producto-form.html?id=${p.id}">Editar</a>
+        <button type="button" class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${p.id}">Eliminar</button>
       </td>
     `;
     cuerpo.appendChild(fila);

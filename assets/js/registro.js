@@ -97,7 +97,7 @@ formRegistro.addEventListener('submit', (e) => {
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
     aviso.textContent = 'Cuenta creada correctamente. Ahora puedes iniciar sesión.';
-    aviso.className = 'aviso mt-3 text-center alert alert-success';
+    aviso.className = 'mt-3 text-center alert alert-success';
     aviso.hidden = false;
     formRegistro.reset();
 });

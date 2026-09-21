@@ -39,7 +39,7 @@ if (formQty) {
         const cantidad = Number(document.querySelector('#cantidad').value);
         if (isNaN(cantidad) || cantidad <= 0 ||
             !Number.isInteger(cantidad)) {
-            aviso.className = "avisoerror";
+            aviso.className = "alert alert-danger";
             aviso.textContent = "Ingresa una cantidad válida (número entero mayor a 0)";
             aviso.hidden = false;
             return;
@@ -56,7 +56,7 @@ if (formQty) {
             cantidad: cantidad
         };
         agregarAlCarrito(producto);
-        aviso.className = "aviso";
+        aviso.className = "alert alert-success";
         aviso.textContent = "Producto agregado al carrito";
         aviso.hidden = false;
         actualizarContadorCarrito();
@@ -72,7 +72,7 @@ function renderizarCarrito() {
     const botonFinalizar = document.querySelector('#finalizar-compra');
 
     if (carrito.length === 0) {
-        cuerpo.innerHTML = `<p class="carrito-vacio">Tu carrito está vacío. <a href="producto.html">Ver catálogo</a></p>`;
+        cuerpo.innerHTML = `<div class="list-group-item text-center py-4">Tu carrito está vacío. <a href="producto.html">Ver catálogo</a></div>`;
         if (botonVaciar) botonVaciar.disabled = true;
         if (botonFinalizar) botonFinalizar.disabled = true;
         document.querySelector('#carrito-total').textContent = formatearPrecio(0);
@@ -90,25 +90,31 @@ function renderizarCarrito() {
         total += subtotal
 
         const miniatura = item.imagen
-            ? `<img src="${item.imagen}" alt="Portada de ${item.nombre}">`
-            : `<i class="fa-solid fa-gamepad" aria-hidden="true"></i>`;
+            ? `<img src="${item.imagen}" class="object-fit-cover" alt="Portada de ${item.nombre}">`
+            : `<div class="bg-secondary-subtle d-flex align-items-center justify-content-center">Sin imagen</div>`;
 
         const fila = document.createElement('div');
-        fila.className = 'cart-item';
+        fila.className = 'list-group-item';
         fila.innerHTML = `
-      <div class="cart-item-thumb">${miniatura}</div>
-      <div class="cart-item-info">
-        <h5 class="cart-item-nombre">${item.nombre}</h5>
-        <div class="cart-item-cantidad">
-          <button class="btn-restar" data-id="${item.id}" aria-label="Restar una unidad de ${item.nombre}">−</button>
-          <span>${item.cantidad}</span>
-          <button class="btn-sumar" data-id="${item.id}" aria-label="Sumar una unidad de ${item.nombre}">+</button>
+      <div class="row align-items-center g-3">
+        <div class="col-4 col-md-2">
+          <div class="ratio ratio-1x1 rounded overflow-hidden">${miniatura}</div>
         </div>
-        <button class="btn-eliminar" data-id="${item.id}" aria-label="Eliminar ${item.nombre} del carrito">Eliminar</button>
-      </div>
-      <div class="cart-item-precio">
-        <strong>${formatearPrecio(subtotal)}</strong>
-        <span class="cart-item-preciounit">${formatearPrecio(item.precio)} c/u</span>
+        <div class="col-8 col-md-6">
+          <h3 class="h6">${item.nombre}</h3>
+          <div class="btn-group btn-group-sm mb-2" role="group" aria-label="Cantidad de ${item.nombre}">
+            <button type="button" class="btn btn-outline-secondary btn-restar" data-id="${item.id}" aria-label="Restar una unidad de ${item.nombre}">−</button>
+            <span class="btn btn-light disabled">${item.cantidad}</span>
+            <button type="button" class="btn btn-outline-secondary btn-sumar" data-id="${item.id}" aria-label="Sumar una unidad de ${item.nombre}">+</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${item.id}" aria-label="Eliminar ${item.nombre} del carrito">Eliminar</button>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+          <strong class="d-block">${formatearPrecio(subtotal)}</strong>
+          <span class="text-body-secondary small">${formatearPrecio(item.precio)} c/u</span>
+        </div>
       </div>
     `;
         cuerpo.appendChild(fila);
@@ -189,7 +195,7 @@ if (botonFinalizar) {
     botonFinalizar.addEventListener('click', () => {
     const carrito = obtenerCarrito();
     if (carrito.length === 0) {
-        aviso.className = "avisoerror";
+        aviso.className = "alert alert-danger mt-3 mb-0";
         aviso.textContent = "No tiene productos para comprar"
         aviso.hidden = false
         return
@@ -203,7 +209,7 @@ if (botonFinalizar) {
 
     guardarCarrito([]);
     renderizarCarrito();
-    aviso.className = "aviso";
+    aviso.className = "alert alert-success mt-3 mb-0";
     aviso.textContent = "Gracias por tu compra";
     aviso.hidden = false
 });

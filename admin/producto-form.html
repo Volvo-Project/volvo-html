@@ -1,98 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvo | Admin | Nuevo producto</title>
-    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
-
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-
-    <script src="../assets/js/guardia-admin.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volvo | Admin | Nuevo producto</title>
+  <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <script src="../assets/js/guardia-admin.js"></script>
 </head>
-
-<body class="admin-page">
-    <header class="admin-header">
-      <a class="admin-marca" href="home.html">Volvo <span>Admin</span></a>
-      <p class="admin-sesion" id="admin-sesion"></p>
-    </header>
-    <div class="admin-layout">
-        <aside class="admin-sidebar">
-            <nav>
-                <ul>
-                    <li><a href="home.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="usuarios.html">Usuarios</a></li>
-                    <li><a href="../index.html">Volver a la tienda</a></li>
-                    <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="admin-content">
-            <h1>Nuevo / Editar producto</h1>
-                <form id="form-producto" novalidate>
-                    <div class="campo">
-                        <label for="prod-codigo">Código producto</label>
-                        <input type="text" id="prod-codigo" name="codigo" placeholder="WFRM-01 (mínimo 3 caracteres)">
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-nombre">Nombre</label>
-                        <input type="text" id="prod-nombre" name="nombre" maxlength="100" placeholder="Warframe">
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-descripcion">Descripción</label>
-                        <textarea id="prod-descripcion" name="descripcion" maxlength="500" placeholder="Breve reseña del juego (máximo 500 caracteres)"></textarea>
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-precio">Precio</label>
-                        <input type="number" id="prod-precio" name="precio" min="0" placeholder="17990 (0 si es gratis)">
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-stock">Stock</label>
-                        <input type="number" id="prod-stock" name="stock" min="0" step="1" placeholder="10">
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-stock-critico">Stock crítico</label>
-                        <input type="number" id="prod-stock-critico" name="stockCritico" min="0" step="1" placeholder="Opcional, ej: 3">
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-categoria">Categoría</label>
-                        <select id="prod-categoria" name="categoria">
-                            <option value="">Selecciona categoría</option>
-                            <option value="Aventura">Aventura</option>
-                            <option value="Estrategia">Estrategia</option>
-                            <option value="Carreras">Carreras</option>
-                        </select>
-                        <span class="error"></span>
-                    </div>
-                    <div class="campo">
-                        <label for="prod-imagen">Imagen (URL)</label>
-                        <input type="text" id="prod-imagen" name="imagen" placeholder="assets/images/warframe-card.jpg">
-                    </div>
-                    <button type="submit">Guardar</button>
-                </form>
-                <p id="aviso" hidden></p>
-
-        </main>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-dark bg-dark px-3">
+      <a class="navbar-brand" href="home.html">Volvo <span class="text-info">Admin</span></a>
+      <span class="navbar-text" id="admin-sesion"></span>
+    </nav>
+  </header>
+  <div class="container-fluid flex-grow-1">
+    <div class="row">
+      <aside class="col-md-3 col-lg-2 bg-body-tertiary py-3">
+        <nav aria-label="Menú del panel">
+          <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="productos.html" aria-current="page">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Volver a la tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="col-md-9 col-lg-10 p-4">
+        <h1>Nuevo / Editar producto</h1>
+        <form id="form-producto" novalidate class="col-lg-6">
+        <div class="mb-3">
+          <label for="prod-codigo" class="form-label">Código producto</label>
+          <input type="text" class="form-control" id="prod-codigo" name="codigo" placeholder="WFRM-01 (mínimo 3 caracteres)">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="prod-nombre" name="nombre" maxlength="100" placeholder="Warframe">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-descripcion" class="form-label">Descripción</label>
+          <textarea class="form-control" id="prod-descripcion" name="descripcion" rows="3" maxlength="500" placeholder="Breve reseña del juego (máximo 500 caracteres)"></textarea>
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-precio" class="form-label">Precio</label>
+          <input type="number" class="form-control" id="prod-precio" name="precio" min="0" placeholder="17990 (0 si es gratis)">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-stock" class="form-label">Stock</label>
+          <input type="number" class="form-control" id="prod-stock" name="stock" min="0" step="1" placeholder="10">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-stock-critico" class="form-label">Stock crítico</label>
+          <input type="number" class="form-control" id="prod-stock-critico" name="stockCritico" min="0" step="1" placeholder="Opcional, ej: 3">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-categoria" class="form-label">Categoría</label>
+          <select class="form-select" id="prod-categoria" name="categoria">
+            <option value="">Selecciona categoría</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Estrategia">Estrategia</option>
+            <option value="Carreras">Carreras</option>
+          </select>
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="prod-imagen" class="form-label">Imagen (URL)</label>
+          <input type="text" class="form-control" id="prod-imagen" name="imagen" placeholder="assets/images/warframe-card.jpg">
+        </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <p id="aviso" class="alert alert-success mt-3 col-lg-6" hidden></p>
+      </main>
     </div>
-    <footer class="admin-footer">
-        <p>Volvo · Panel de administración · 2026</p>
-    </footer>
-    <script src="../assets/js/productos.js"></script>
-    <script src="../assets/js/admin-productos.js"></script>
-    <script src="../assets/js/admin-producto-form.js"></script>
+  </div>
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0 small">Volvo · Panel de administración · 2026</p>
+  </footer>
+  <script src="../assets/js/productos.js"></script>
+  <script src="../assets/js/admin-productos.js"></script>
+  <script src="../assets/js/admin-producto-form.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -41,8 +41,8 @@ function renderizarTablaUsuarios() {
       <td>${p.correo}</td>
       <td>${p.tipo}</td>
       <td>
-        <a href="usuario-form.html?id=${p.run}">Editar</a>
-        <button class="btn-eliminar" data-id="${p.run}">Eliminar</button>
+        <a class="btn btn-sm btn-outline-primary" href="usuario-form.html?id=${p.run}">Editar</a>
+        <button type="button" class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${p.run}">Eliminar</button>
       </td>
     `;
     cuerpo.appendChild(fila);

@@ -1,100 +1,36 @@
-(function ($) {
-    
-    "use strict";
-
-    $(window).on('load', function() {
-        $('#js-preloader').addClass('loaded');
+// Barra de navegación: le agrega una sombra cuando el usuario baja la página
+const barraNavegacion = document.querySelector('.navbar');
+if (barraNavegacion) {
+    window.addEventListener('scroll', () => {
+        barraNavegacion.classList.toggle('shadow', window.scrollY > 10);
     });
+}
 
-    $(window).scroll(function() {
-      var scroll = $(window).scrollTop();
-      var box = $('.header-text').height();
-      var header = $('header').height();
+// Newsletter del inicio: valida el correo con una expresión regular
+const formSubscribe = document.querySelector('#subscribe');
+if (formSubscribe) {
+    formSubscribe.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const avisoSubscribe = document.querySelector('#subscribe-aviso');
+        const inputEmail = document.querySelector('#exampleInputEmail1');
+        const correo = inputEmail.value.trim();
+        const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
 
-      if (scroll >= box - header) {
-        $("header").addClass("background-header");
-      } else {
-        $("header").removeClass("background-header");
-      }
-    })
-
-    var width = $(window).width();
-        $(window).resize(function() {
-        if (width > 767 && $(window).width() < 767) {
-            location.reload();
-        }
-        else if (width < 767 && $(window).width() > 767) {
-            location.reload();
-        }
-    })
-
-    if($('.menu-trigger').length){
-        $(".menu-trigger").on('click', function() {
-            $(this).toggleClass('active');
-            $('.header-area .nav').slideToggle(200);
-        });
-    }
-
-    const formSubscribe = document.querySelector('#subscribe');
-    if (formSubscribe) {
-        formSubscribe.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const avisoSubscribe = document.querySelector('#subscribe-aviso');
-            const inputEmail = document.querySelector('#exampleInputEmail1');
-            const correo = inputEmail.value.trim();
-            const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
-
-            if (!correoValido) {
-                avisoSubscribe.className = "avisoerror";
-                avisoSubscribe.textContent = "Ingresa un correo electrónico válido";
-                avisoSubscribe.hidden = false;
-                return;
-            }
-
-            avisoSubscribe.className = "aviso";
-            avisoSubscribe.textContent = "¡Listo! Te suscribiste con " + correo + ". Revisa tu correo por el descuento.";
+        if (!correoValido) {
+            avisoSubscribe.className = "alert alert-danger mt-3 mb-0";
+            avisoSubscribe.textContent = "Ingresa un correo electrónico válido";
             avisoSubscribe.hidden = false;
-            formSubscribe.reset();
-        });
-    }
-
-    $('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                var width = $(window).width();
-                if(width < 991) {
-                    $('.menu-trigger').removeClass('active');
-                    $('.header-area .nav').slideUp(200);    
-                }               
-                $('html,body').animate({
-                    scrollTop: (target.offset().top) - 80
-                }, 700);
-                return false;
-            }
-        }
-    });
-
-    $(window).on('load', function() {
-        if($('.cover').length){
-            $('.cover').parallax({
-                imageSrc: $('.cover').data('image'),
-                zIndex: '1'
-            });
+            return;
         }
 
-        $("#preloader").animate({
-            'opacity': '0'
-        }, 600, function(){
-            setTimeout(function(){
-                $("#preloader").css("visibility", "hidden").fadeOut();
-            }, 300);
-        });
+        avisoSubscribe.className = "alert alert-success mt-3 mb-0";
+        avisoSubscribe.textContent = "¡Listo! Te suscribiste con " + correo + ". Revisa tu correo por el descuento.";
+        avisoSubscribe.hidden = false;
+        formSubscribe.reset();
     });
-    
-})(window.jQuery);
+}
 
+// Contador del carrito (insignia junto al enlace "Carrito")
 function actualizarContadorCarrito() {
     const contador = document.querySelector('#carrito-contador');
     if (!contador) {
@@ -116,71 +52,56 @@ function actualizarContadorCarrito() {
 }
 actualizarContadorCarrito();
 
-// Juegos que rota el banner del inicio. El precio y el enlace deben coincidir
+// Juegos que rota la tarjeta destacada del inicio. El precio y el enlace deben coincidir
 // con lo que tiene el mismo juego en el arreglo de productos.js.
 const juegosBanner = [
     {
-        fondo: "assets/images/wj1cjy6hy0t51.jpg", 
         tarjeta: "assets/images/assassinscreed2.jpg",
         nombre: "Assassin's Creed",
         enlace: "detalle-producto.html?id=assassins-creed",
         precio: "$19.990",
-        oferta: "-50%",
-        posicion: "center bottom"
+        oferta: "-50%"
     },
     {
-        fondo: "assets/images/igra-art-sushchestvo-warframe-voin-oruzhie-fantastika-landsh.jpg",
         tarjeta: "assets/images/warframe-portada.jpg",
         nombre: "Warframe",
         enlace: "detalle-producto.html?id=warframe",
         precio: "GRATIS",
-        oferta: "",
-        posicion: "center top"
+        oferta: ""
     }
-
 ];
 
 let indiceActual = 0;
 
 function cambiarBanner() {
-    const banner = document.querySelector('.main-banner');
-    if (!banner) {
+    const tarjeta = document.querySelector('#banner-tarjeta');
+    if (!tarjeta) {
         return;
     }
-    const imgTarjeta = document.querySelector('.main-banner .right-image img');
-    const enlaceTarjeta = document.querySelector('.main-banner .right-image a');
-    const txtPrecio = document.querySelector('.main-banner .right-image .precio');
-    const txtOferta = document.querySelector('.main-banner .right-image .oferta');
+    const imgTarjeta = document.querySelector('#banner-img');
+    const enlaceTarjeta = document.querySelector('#banner-enlace');
+    const txtPrecio = document.querySelector('#banner-precio');
+    const txtOferta = document.querySelector('#banner-oferta');
 
-    banner.style.transition = "opacity 0.4s ease-in-out";
-    banner.style.opacity = "0";
-
+    // "fade" de Bootstrap: se quita "show" para que se desvanezca y se vuelve a poner al cambiar el contenido
+    tarjeta.classList.remove('show');
 
     setTimeout(() => {
         indiceActual = (indiceActual + 1) % juegosBanner.length;
+        const juego = juegosBanner[indiceActual];
 
-        banner.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 70%), url(${juegosBanner[indiceActual].fondo})`;
-        banner.style.backgroundPosition = juegosBanner[indiceActual].posicion;
-        imgTarjeta.src = juegosBanner[indiceActual].tarjeta;
-        imgTarjeta.alt = `Portada de ${juegosBanner[indiceActual].nombre}`;
+        imgTarjeta.src = juego.tarjeta;
+        imgTarjeta.alt = `Portada de ${juego.nombre}`;
         // El enlace tambien cambia, si no la portada llevaria siempre al mismo juego
-        if (enlaceTarjeta) {
-            enlaceTarjeta.href = juegosBanner[indiceActual].enlace;
-        }
-        txtPrecio.textContent = juegosBanner[indiceActual].precio;
+        enlaceTarjeta.href = juego.enlace;
+        txtPrecio.textContent = juego.precio;
+        txtOferta.textContent = juego.oferta;
+        txtOferta.hidden = juego.oferta === "";
 
-        if (juegosBanner[indiceActual].oferta === "") {
-            txtOferta.style.display = "none";
-        } else {
-            txtOferta.style.display = "inline-block";
-            txtOferta.textContent = juegosBanner[indiceActual].oferta;
-        }
-
-
-        banner.style.opacity = "1";
-    }, 400);
+        tarjeta.classList.add('show');
+    }, 300);
 }
 
-if (document.querySelector('.main-banner')) {
+if (document.querySelector('#banner-tarjeta')) {
     setInterval(cambiarBanner, 10000);
 }

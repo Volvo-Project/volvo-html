@@ -1,108 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvo | Admin | Nuevo usuario</title>
-    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
-
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-
-    <script src="../assets/js/guardia-admin.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volvo | Admin | Nuevo usuario</title>
+  <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <script src="../assets/js/guardia-admin.js"></script>
 </head>
-
-<body class="admin-page">
-    <header class="admin-header">
-      <a class="admin-marca" href="home.html">Volvo <span>Admin</span></a>
-      <p class="admin-sesion" id="admin-sesion"></p>
-    </header>
-    <div class="admin-layout">
-        <aside class="admin-sidebar">
-            <nav>
-                <ul>
-                    <li><a href="home.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="usuarios.html">Usuarios</a></li>
-                    <li><a href="../index.html">Volver a la tienda</a></li>
-                    <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="admin-content">
-            <h1>Nuevo / Editar usuario</h1>
-            <form id="form-usuario" novalidate>
-                <div class="campo">
-                    <label for="usr-run">Run</label>
-                    <input type="text" id="usr-run" name="run" maxlength="9" placeholder="19011022K (sin puntos ni guión)">
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-nombre">Nombre</label>
-                    <input type="text" id="usr-nombre" name="nombre" maxlength="50" placeholder="Juan">
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-apellidos">Apellidos</label>
-                    <input type="text" id="usr-apellidos" name="apellidos" maxlength="100" placeholder="Pérez González">
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-correo">Correo</label>
-                    <input type="text" id="usr-correo" name="correo" maxlength="100" placeholder="ejemplo@duoc.cl">
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-fecha-nacimiento">Fecha Nacimiento</label>
-                    <input type="date" id="usr-fecha-nacimiento" name="fecha nacimiento">
-
-                </div>
-                <div class="campo">
-                    <label for="usr-tipo">Tipo de usuario</label>
-                    <select id="usr-tipo" name="tipo">
-                        <option value="">Selecciona tipo</option>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Cliente">Cliente</option>
-                        <option value="Vendedor">Vendedor</option>
-                    </select>
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-region">Región</label>
-                    <select id="usr-region" name="region">
-                        <option value="">Selecciona región</option>
-                    </select>
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-comuna">Comuna</label>
-                    <select id="usr-comuna" name="comuna">
-                        <option value="">Selecciona comuna</option>
-                    </select>
-                    <span class="error"></span>
-                </div>
-                <div class="campo">
-                    <label for="usr-direccion">Dirección</label>
-                    <input type="text" id="usr-direccion" name="direccion" maxlength="300" placeholder="Av. Providencia 1234, depto 5B">
-                    <span class="error"></span>
-                </div>
-                <button type="submit">Guardar</button>
-            </form>
-            <p id="aviso" hidden></p>
-
-        </main>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-dark bg-dark px-3">
+      <a class="navbar-brand" href="home.html">Volvo <span class="text-info">Admin</span></a>
+      <span class="navbar-text" id="admin-sesion"></span>
+    </nav>
+  </header>
+  <div class="container-fluid flex-grow-1">
+    <div class="row">
+      <aside class="col-md-3 col-lg-2 bg-body-tertiary py-3">
+        <nav aria-label="Menú del panel">
+          <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="usuarios.html" aria-current="page">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Volver a la tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="col-md-9 col-lg-10 p-4">
+        <h1>Nuevo / Editar usuario</h1>
+        <form id="form-usuario" novalidate class="col-lg-6">
+        <div class="mb-3">
+          <label for="usr-run" class="form-label">Run</label>
+          <input type="text" class="form-control" id="usr-run" name="run" maxlength="9" placeholder="19011022K (sin puntos ni guión)">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="usr-nombre" name="nombre" maxlength="50" placeholder="Juan">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-apellidos" class="form-label">Apellidos</label>
+          <input type="text" class="form-control" id="usr-apellidos" name="apellidos" maxlength="100" placeholder="Pérez González">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-correo" class="form-label">Correo</label>
+          <input type="text" class="form-control" id="usr-correo" name="correo" maxlength="100" placeholder="ejemplo@duoc.cl">
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-fecha-nacimiento" class="form-label">Fecha Nacimiento</label>
+          <input type="date" class="form-control" id="usr-fecha-nacimiento" name="fecha nacimiento">
+        </div>
+        <div class="mb-3">
+          <label for="usr-tipo" class="form-label">Tipo de usuario</label>
+          <select class="form-select" id="usr-tipo" name="tipo">
+            <option value="">Selecciona tipo</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Vendedor">Vendedor</option>
+          </select>
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-region" class="form-label">Región</label>
+          <select class="form-select" id="usr-region" name="region">
+            <option value="">Selecciona región</option>
+          </select>
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-comuna" class="form-label">Comuna</label>
+          <select class="form-select" id="usr-comuna" name="comuna">
+            <option value="">Selecciona comuna</option>
+          </select>
+          <span class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+          <label for="usr-direccion" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="usr-direccion" name="direccion" maxlength="300" placeholder="Av. Providencia 1234, depto 5B">
+          <span class="text-danger small"></span>
+        </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <p id="aviso" class="alert alert-success mt-3 col-lg-6" hidden></p>
+      </main>
     </div>
-    <footer class="admin-footer">
-        <p>Volvo · Panel de administración · 2026</p>
-    </footer>
-    <script src="../assets/js/regiones.js"></script>
-    <script src="../assets/js/admin-usuarios.js"></script>
-    <script src="../assets/js/admin-usuario-form.js"></script>
+  </div>
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0 small">Volvo · Panel de administración · 2026</p>
+  </footer>
+  <script src="../assets/js/regiones.js"></script>
+  <script src="../assets/js/admin-usuarios.js"></script>
+  <script src="../assets/js/admin-usuario-form.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>

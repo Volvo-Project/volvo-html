@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvo | Admin | Inicio</title>
-    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
-
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-
-    <script src="../assets/js/guardia-admin.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volvo | Admin | Inicio</title>
+  <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <script src="../assets/js/guardia-admin.js"></script>
 </head>
-<body class="admin-page">
-<header class="admin-header">
-  <a class="admin-marca" href="home.html">Volvo <span>Admin</span></a>
-  <p class="admin-sesion" id="admin-sesion"></p>
-</header>
-<div class="admin-layout">
-  <aside class="admin-sidebar">
-    <nav>
-    <ul>
-      <li><a href="home.html">Inicio</a></li>
-      <li><a href="productos.html">Productos</a></li>
-      <li><a href="usuarios.html">Usuarios</a></li>
-      <li><a href="../index.html">Volver a la tienda</a></li>
-      <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
-    </ul>
-  </nav>
-  </aside>
-  <main class="admin-content">
-    <h1>Panel de administración</h1>
-    <p>Bienvenido al panel de administración de Volvo.</p>
-
-    <section class="admin-resumen">
-      <article class="admin-card">
-        <h2 id="total-productos">0</h2>
-        <p>Productos en catálogo</p>
-        <a href="productos.html">Gestionar productos</a>
-      </article>
-      <article class="admin-card">
-        <h2 id="total-usuarios">0</h2>
-        <p>Usuarios registrados</p>
-        <a href="usuarios.html">Gestionar usuarios</a>
-      </article>
-      <article class="admin-card">
-        <h2 id="stock-bajo">0</h2>
-        <p>Productos con stock crítico</p>
-        <a href="productos.html">Revisar stock</a>
-      </article>
-    </section>
-  </main>
-</div>
-<footer class="admin-footer">
-  <p>Volvo · Panel de administración · 2026</p>
-</footer>
-<script src="../assets/js/productos.js"></script>
-<script src="../assets/js/admin-productos.js"></script>
-<script src="../assets/js/admin-usuarios.js"></script>
-<script src="../assets/js/admin-home.js"></script>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-dark bg-dark px-3">
+      <a class="navbar-brand" href="home.html">Volvo <span class="text-info">Admin</span></a>
+      <span class="navbar-text" id="admin-sesion"></span>
+    </nav>
+  </header>
+  <div class="container-fluid flex-grow-1">
+    <div class="row">
+      <aside class="col-md-3 col-lg-2 bg-body-tertiary py-3">
+        <nav aria-label="Menú del panel">
+          <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link active" href="home.html" aria-current="page">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="usuarios.html">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Volver a la tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="col-md-9 col-lg-10 p-4">
+        <h1>Panel de administración</h1>
+        <p class="lead">Bienvenido al panel de administración de Volvo.</p>
+        <section class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+          <div class="col"><article class="card text-center h-100"><div class="card-body">
+            <p class="display-4 mb-0" id="total-productos">0</p><p>Productos en catálogo</p>
+            <a class="btn btn-primary btn-sm" href="productos.html">Gestionar productos</a></div></article></div>
+          <div class="col"><article class="card text-center h-100"><div class="card-body">
+            <p class="display-4 mb-0" id="total-usuarios">0</p><p>Usuarios registrados</p>
+            <a class="btn btn-primary btn-sm" href="usuarios.html">Gestionar usuarios</a></div></article></div>
+          <div class="col"><article class="card text-center h-100"><div class="card-body">
+            <p class="display-4 mb-0" id="stock-bajo">0</p><p>Productos con stock crítico</p>
+            <a class="btn btn-primary btn-sm" href="productos.html">Revisar stock</a></div></article></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0 small">Volvo · Panel de administración · 2026</p>
+  </footer>
+  <script src="../assets/js/productos.js"></script>
+  <script src="../assets/js/admin-productos.js"></script>
+  <script src="../assets/js/admin-usuarios.js"></script>
+  <script src="../assets/js/admin-home.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

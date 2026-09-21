@@ -19,7 +19,6 @@ function mostrarProducto(producto) {
   document.getElementById("prod-breadcrumb").textContent = producto.nombre;
   document.getElementById("prod-imagen").src = producto.imagenDetalle;
   document.getElementById("prod-imagen").alt = `Portada de ${producto.nombre}`;
-  document.getElementById("prod-nombre").textContent = producto.nombre;
   document.getElementById("prod-descripcion").textContent = producto.descripcion;
   document.getElementById("prod-id").textContent = producto.idJuego;
   document.getElementById("prod-genero").textContent = producto.genero;
@@ -65,21 +64,21 @@ function mostrarOpiniones(producto) {
   }
 
   if (opiniones.length === 0) {
-    contenedor.innerHTML = "<p>Este producto todavía no tiene opiniones.</p>";
+    contenedor.innerHTML = "<p class=\"mb-0\">Este producto todavía no tiene opiniones.</p>";
     return;
   }
 
-  contenedor.innerHTML = opiniones.map((opinion) => {
+  contenedor.innerHTML = '<div class="list-group list-group-flush">' + opiniones.map((opinion) => {
     // Cinco estrellas siempre: las llenas segun la nota y el resto vacias
     const estrellas = "★".repeat(opinion.nota) + "☆".repeat(5 - opinion.nota);
     return `
-      <article class="opinion">
-        <div class="opinion-cabecera">
-          <h5>${opinion.autor}</h5>
-          <span class="opinion-estrellas" aria-label="${opinion.nota} de 5 estrellas">${estrellas}</span>
+      <article class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <h3 class="h6 mb-1">${opinion.autor}</h3>
+          <span class="text-warning" aria-label="${opinion.nota} de 5 estrellas">${estrellas}</span>
         </div>
-        <p>${opinion.texto}</p>
+        <p class="mb-0">${opinion.texto}</p>
       </article>
     `;
-  }).join("");
+  }).join("") + '</div>';
 }

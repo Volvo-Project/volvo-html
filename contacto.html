@@ -1,122 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvo | Contacto</title>
-    <meta name="description" content="Escribe tus dudas o comentarios">
-
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volvo | Contacto</title>
+  <meta name="description" content="Escribe tus dudas o comentarios">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
-
-<body>
-    <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-            <span class="dot"></span>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
+<body class="d-flex flex-column min-vh-100">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="assets/images/volvo logo.png" alt="Volvo" width="110"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu-principal">
+          <form class="d-flex my-3 my-lg-0 ms-lg-3" id="search" action="producto.html" method="get" role="search">
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Busca tu juego" id="searchText" name="buscar" autocomplete="off" aria-label="Buscar juego">
+              <button class="btn btn-primary" type="submit">Buscar</button>
             </div>
+          </form>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="producto.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contacto.html" aria-current="page">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="registro.html">Registrarse</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html" aria-label="Ver carrito de compras">Carrito <span id="carrito-contador" class="badge text-bg-warning" hidden>0</span></a></li>
+          </ul>
         </div>
-    </div>
+      </div>
+    </nav>
+  </header>
 
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/volvo logo.png"
-                                alt="Logo volvo" style="width: 200px;">
-                        </a>
+  <main class="flex-grow-1">
+    <section class="bg-body-tertiary border-bottom py-5 text-center">
+      <div class="container">
+        <h1 class="display-5 fw-bold">Contacto</h1>
+        <p class="lead text-body-secondary mb-0">Completa el formulario y te responderemos</p>
+      </div>
+    </section>
 
-                        <ul class="nav">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="producto.html">Productos</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="blogs.html">Blog</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                            <li><a href="login.html">Iniciar sesión</a></li>
-                            <li><a href="registro.html">Registrarse</a></li>
-                            <li>
-                                <a href="carrito.html" aria-label="Ver carrito de compras" class="cart-link">
-                                    <i class="fa-solid fa-cart-shopping"></i><span id="carrito-contador" class="carrito-contador" hidden>0</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <a class="menu-trigger">
-                            <span>Menu</span>
-                        </a>
-                    </nav>
-                </div>
+    <section class="container py-5" aria-label="Formulario de contacto">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+              <form id="formContacto" novalidate>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" maxlength="100" autocomplete="name" placeholder="Ingrese su nombre">
+          <span class="text-danger small" id="errorNombre"></span>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo</label>
+          <input type="email" class="form-control" id="correo" name="correo" maxlength="100" autocomplete="email" placeholder="ejemplo@duoc.cl">
+          <span class="text-danger small" id="errorCorreo"></span>
+        </div>
+        <div class="mb-3">
+          <label for="comentario" class="form-label">Comentario</label>
+          <textarea class="form-control" id="comentario" name="comentario" maxlength="500" rows="5" placeholder="Escribe tu comentario"></textarea>
+          <span class="text-danger small" id="errorComentario"></span>
+        </div>
+
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                <p id="aviso" class="alert mt-3 mb-0 text-center" hidden></p>
+              </form>
             </div>
+          </div>
         </div>
-    </header>
-
-    <div class="page-heading header-text">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Contacto</h1>
-                    <span>Completa el formulario y te responderemos</span>
-                </div>
-            </div>
-        </div>
-    </div>
-<main class="container py-5 d-flex justify-content-center">
-  <section class="w-100" style="max-width: 500px;" aria-label="Formulario de contacto">
-    <form id="formContacto" novalidate class="p-4 shadow rounded" style="max-width: 500px; width: 100%;">
-
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="100" autocomplete="name" placeholder="Ingrese su nombre">
-        <span class="error text-danger small" id="errorNombre"></span>
       </div>
+    </section>
+  </main>
 
-      <div class="mb-3">
-        <label for="correo" class="form-label">Correo</label>
-        <input type="email" class="form-control" id="correo" name="correo" maxlength="100" autocomplete="email" placeholder="ejemplo@duoc.cl">
-        <span class="error text-danger small" id="errorCorreo"></span>
-      </div>
-
-      <div class="mb-3">
-        <label for="comentario" class="form-label">Comentario</label>
-        <textarea class="form-control" id="comentario" name="comentario" maxlength="500" rows="5" placeholder="Escribe tu comentario"></textarea>
-        <span class="error text-danger small" id="errorComentario"></span>
-      </div>
-
-      <button type="submit" class="btn btn-primary w-100">Enviar</button>
-      <p id="aviso" class="aviso mt-3 text-center" hidden></p>
-
-    </form>
-  </section>
-</main>
-
-  <footer>
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
     <div class="container">
-        <div class="col-lg-12">
-            <p><a rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo. </a>Todos los derechos reservados.
-                Desarrollado por: <a rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares,</a>
-                <a rel="nofollow" href="https://github.com/Matyy98" target="_blank"> Matías Rodriguez</a> y
-                <a rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a></p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <h2 class="h5">Volvo</h2>
+          <p class="text-secondary mb-0">Tienda online de videojuegos digitales, con precios en pesos chilenos y entrega inmediata.</p>
         </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Tienda</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="producto.html">Todos los juegos</a></li>
+            <li><a class="link-light text-decoration-none" href="carrito.html">Carrito</a></li>
+            <li><a class="link-light text-decoration-none" href="blogs.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Ayuda</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="nosotros.html">Nosotros</a></li>
+            <li><a class="link-light text-decoration-none" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Cuenta</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="login.html">Iniciar sesión</a></li>
+            <li><a class="link-light text-decoration-none" href="registro.html">Registrarse</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="text-center text-secondary small mb-0">
+        <a class="link-secondary text-decoration-none" rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo.</a>
+        Todos los derechos reservados. Desarrollado por:
+        <a class="link-secondary" rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares</a>,
+        <a class="link-secondary" rel="nofollow" href="https://github.com/Matyy98" target="_blank">Matías Rodriguez</a> y
+        <a class="link-secondary" rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a>
+      </p>
     </div>
   </footer>
 
-  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/custom.js"></script>
-    <script src="assets/js/sesion.js"></script>
+  <script src="assets/js/sesion.js"></script>
   <script src="assets/js/contacto.js"></script>
-
-
 </body>
-
 </html>

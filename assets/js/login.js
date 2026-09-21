@@ -3,7 +3,7 @@ const form = document.querySelector('#formLogin');
 if (new URLSearchParams(window.location.search).get('motivo') === 'admin-requerido') {
     const avisoInicial = document.querySelector('#aviso');
     avisoInicial.textContent = "Debes iniciar sesión con una cuenta de administrador para acceder al panel";
-    avisoInicial.className = "aviso mt-3 text-center alert alert-danger";
+    avisoInicial.className = "mt-3 text-center alert alert-danger";
     avisoInicial.hidden = false;
 }
 
@@ -81,7 +81,7 @@ form.addEventListener("submit", (e) => {
         localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: cuenta.nombre, correo, rol }));
 
         aviso.textContent = "Aviso: Sesión iniciada correctamente. Redirigiendo...";
-        aviso.className = "aviso mt-3 text-center alert alert-success";
+        aviso.className = "mt-3 text-center alert alert-success";
         aviso.hidden = false;
         form.reset();
 
@@ -98,7 +98,7 @@ form.addEventListener("submit", (e) => {
         }
     } else {
         aviso.textContent = "El correo o la contraseña no son correctos";
-        aviso.className = "aviso mt-3 text-center alert alert-danger";
+        aviso.className = "mt-3 text-center alert alert-danger";
         aviso.hidden = false;
     }
 });

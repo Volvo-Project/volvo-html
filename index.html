@@ -1,416 +1,415 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvo | Tienda de videojuegos</title>
-    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
-
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volvo | Tienda de videojuegos</title>
+  <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
-<body>
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/volvo logo.png" alt="Logo volvo" style="width: 200px;">
-                    </a>
-
-                    <ul class="nav">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="producto.html">Productos</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                        <li><a href="login.html">Iniciar sesión</a></li>
-                        <li><a href="registro.html">Registrarse</a></li>
-                        <li>
-                            <a href="carrito.html" aria-label="Ver carrito de compras" class="cart-link">
-                                <i class="fa-solid fa-cart-shopping"></i><span id="carrito-contador" class="carrito-contador" hidden>0</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <a class="menu-trigger">
-                        <span>Menu</span>
-                    </a>
-                </nav>
+<body class="d-flex flex-column min-vh-100">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="assets/images/volvo logo.png" alt="Volvo" width="110"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu-principal">
+          <form class="d-flex my-3 my-lg-0 ms-lg-3" id="search" action="producto.html" method="get" role="search">
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Busca tu juego" id="searchText" name="buscar" autocomplete="off" aria-label="Buscar juego">
+              <button class="btn btn-primary" type="submit">Buscar</button>
             </div>
+          </form>
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="producto.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="registro.html">Registrarse</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html" aria-label="Ver carrito de compras">Carrito <span id="carrito-contador" class="badge text-bg-warning" hidden>0</span></a></li>
+          </ul>
         </div>
-    </div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-
-  <div class="main-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="caption header-text">
-                    <h6>Bienvenido a Volvo</h6>
-                    <h1>La mejor página para comprar y opinar sobre tus juegos favoritos</h1>
-                    <p>Encuentra un catalogo extendido de videojuegos</p>
-                    <div class="search-input">
-                        <form id="search" action="producto.html" method="get">
-                            <input type="text" placeholder="Busca tu juego" id="searchText" name="buscar" autocomplete="off">
-                                <button type="submit">Buscar ahora</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 offset-lg-2">
-                <div class="right-image">
-                    <a href="detalle-producto.html?id=assassins-creed">
-                      <img src="assets/images/assassinscreed2.jpg" alt="Portada de Assassin's Creed en oferta">
-                    </a>
-                    <span class="precio">$19.990</span>
-                    <span class="oferta">-50%</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-  </div>
-
-  <div class="features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
-                <a href="nosotros.html">
-                    <div class="item">
-                        <div class="image">
-                            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-                        </div>
-                        <h4>Entrega inmediata</h4>
-                    </div>
-                </a>
-            </div><!--Acá termina-->
-
-            <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
-                <a href="contacto.html">
-                    <div class="item">
-                        <div class="image">
-                            <i class="fa-solid fa-headset" aria-hidden="true"></i>
-                        </div>
-                        <h4>Contáctanos</h4>
-                    </div>
-                </a>
-            </div><!--Acá termina-->
-
-            <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
-                <a href="detalle-producto.html?id=gta-6">
-                    <div class="item">
-                        <div class="image">
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                        </div>
-                        <h4>Novedades</h4>
-                    </div>
-                </a>
-            </div><!--Acá termina-->
-
-            <div class="col-lg-3 col-md-6"> <!--Acá empieza-->
-                <a href="blogs.html">
-                    <div class="item">
-                        <div class="image">
-                            <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-                        </div>
-                        <h4>Blog</h4>
-                    </div>
-                </a>
-            </div><!--Acá termina-->
-        </div>
-    </div>
-  </div>
-
-  <section class="section trending">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="section-heading">
-                    <h6>Tendencias</h6>
-                    <h2>Juegos en tendencia</h2>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="main-button">
-                    <a href="producto.html">Ver todos</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="item">
-                    <div class="thumb">
-                        <a href="detalle-producto.html?id=gta-6">
-                            <img src="assets/images/gta6.jpg" alt="Portada de Grand Theft Auto VI">
-                        </a>
-                    </div>
-                    <div class="down-content">
-                        <h4>Reserva GTA 6</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="item">
-                    <div class="thumb">
-                        <a href="detalle-producto.html?id=resident-evil-requiem">
-                            <img src="assets/images/resident-evil-requiem.jpg" alt="Portada de Resident Evil Requiem">
-                        </a>
-                    </div>
-                    <div class="down-content">
-                        <h4>Resident Evil Requiem</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="item">
-                    <div class="thumb">
-                        <a href="detalle-producto.html?id=blood-of-dawnwalker">
-                            <img src="assets/images/blood-of-dawnwalker.jpg" alt="Portada de The Blood of Dawnwalker" style="object-position: 35% center;">
-                        </a>
-                    </div>
-                    <div class="down-content">
-                        <h4>The Blood of Dawnwalker</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="item">
-                    <div class="thumb">
-                        <a href="detalle-producto.html?id=subnautica-2">
-                            <img src="assets/images/subnautica2.jpg" alt="Portada de Subnautica 2">
-                        </a>
-                    </div>
-                    <div class="down-content">
-                        <h4>Subnautica 2</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-</section>
-
-
-  <section class="section most-played">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="section-heading">
-            <h6>LO MÁS TOP</h6>
-            <h2>Más Jugados</h2>
+  <main class="flex-grow-1">
+    <section class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <p class="text-uppercase text-info fw-semibold mb-2">Bienvenido a Volvo</p>
+            <h1 class="display-5 fw-bold">La mejor página para comprar y opinar sobre tus juegos favoritos</h1>
+            <p class="lead mb-4">Encuentra un catalogo extendido de videojuegos</p>
+            <a class="btn btn-primary btn-lg" href="producto.html">Ver catálogo</a>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="main-button">
-            <a href="producto.html">Ver todos</a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="detalle-producto.html?id=warframe"><img src="assets/images/warframe-hero.jpg" alt="Portada de Warframe"></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Acción</span>
-                <h4>Warframe</h4>
-                <a href="detalle-producto.html?id=warframe">Explorar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="detalle-producto.html?id=pubg-battlegrounds"><img src="assets/images/pubg-battlegrounds-hero.jpg" alt="Portada de PUBG Battlegrounds"></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Battle Royale</span>
-                <h4>PUBG Battlegrounds</h4>
-                <a href="detalle-producto.html?id=pubg-battlegrounds">Explorar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="detalle-producto.html?id=rocket-league"><img src="assets/images/rocket-league-hero.jpg" alt="Portada de Rocket League"></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Deportes</span>
-                <h4>Rocket League</h4>
-                <a href="detalle-producto.html?id=rocket-league">Explorar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="detalle-producto.html?id=dead-by-daylight"><img src="assets/images/dead-by-daylight-hero.jpg" alt="Portada de Dead by Daylight"></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Terror</span>
-                <h4>Dead by Daylight</h4>
-                <a href="detalle-producto.html?id=dead-by-daylight">Explorar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="detalle-producto.html?id=brawlhalla"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_hero.jpg" alt="Portada de Brawlhalla"></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Lucha</span>
-                <h4>Brawlhalla</h4>
-                <a href="detalle-producto.html?id=brawlhalla">Explorar</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="detalle-producto.html?id=hollow-knight"><img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/367520/library_hero.jpg" alt="Portada de Hollow Knight"></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Metroidvania</span>
-                <h4>Hollow Knight</h4>
-                <a href="detalle-producto.html?id=hollow-knight">Explorar</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section categories">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <div class="section-heading">
-            <h6>Categorías</h6>
-            <h2>Categorías Principales</h2>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <div class="thumb">
-              <a href="producto.html?filtro=acc"><img src="assets/images/apex-legends.jpg" alt="Categoría Acción"></a>
-              <span class="category-caption">Acción</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <div class="thumb">
-              <a href="producto.html?filtro=avn"><img src="assets/images/lost-ark.jpg" alt="Categoría Aventura"></a>
-              <span class="category-caption">Aventura</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <div class="thumb">
-              <a href="producto.html?filtro=hor"><img src="assets/images/resident-evil-requiem.jpg" alt="Categoría Terror"></a>
-              <span class="category-caption">Terror</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <div class="thumb">
-              <a href="producto.html?filtro=est"><img src="assets/images/age-of-empires-4.jpg" alt="Categoría Estrategia"></a>
-              <span class="category-caption">Estrategia</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <div class="thumb">
-              <a href="producto.html?filtro=sim"><img src="assets/images/rocket-league.jpg" alt="Categoría Simulación y deportes"></a>
-              <span class="category-caption">Simulación y deportes</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="shop">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="section-heading">
-                  <h6>Nuestra Tienda</h6>
-                  <h2>¡Haz tu Pre-Compra y Obtén los Mejores <em>Precios</em> para Ti!</h2>
-                </div>
-                <p>Reserva tus juegos favoritos con anticipación y accede a descuentos exclusivos por tiempo limitado.</p>
-                <div class="main-button">
-                  <a href="producto.html">Comprar Ahora</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 offset-lg-2 align-self-end">
-          <div class="subscribe">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="section-heading">
-                  <h6>NEWSLETTER</h6>
-                  <h2>Obtén un 10% de Descuento en tu Primera Compra al <em>Suscribirte</em> a Nuestro Newsletter!</h2>
-                </div>
-                <div class="search-input">
-                  <form id="subscribe" action="#" novalidate>
-                    <label for="exampleInputEmail1" class="visually-hidden">Correo para el newsletter</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="correoNewsletter" autocomplete="email" placeholder="ejemplo@duoc.cl" required>
-                    <button type="submit">Suscribirme Ahora</button>
-                  </form>
-                  <p id="subscribe-aviso" class="aviso" hidden></p>
-                </div>
+          <div class="col-md-8 col-lg-4 offset-lg-1 mx-auto">
+            <div class="card text-body shadow fade show" id="banner-tarjeta">
+              <a id="banner-enlace" href="detalle-producto.html?id=assassins-creed">
+                <img id="banner-img" src="assets/images/assassinscreed2.jpg" class="card-img-top" alt="Portada de Assassin's Creed en oferta">
+              </a>
+              <div class="card-body d-flex justify-content-between align-items-center">
+                <span id="banner-precio" class="fs-4 fw-bold">$19.990</span>
+                <span id="banner-oferta" class="badge text-bg-danger fs-6">-50%</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <section class="container py-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
+              <h2 class="h5 card-title"><a class="stretched-link text-decoration-none" href="nosotros.html">Entrega inmediata</a></h2>
+              <p class="card-text text-body-secondary mb-0">Sin despachos ni esperas</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
+              <h2 class="h5 card-title"><a class="stretched-link text-decoration-none" href="contacto.html">Contáctanos</a></h2>
+              <p class="card-text text-body-secondary mb-0">Escríbenos tus dudas</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
+              <h2 class="h5 card-title"><a class="stretched-link text-decoration-none" href="detalle-producto.html?id=gta-6">Novedades</a></h2>
+              <p class="card-text text-body-secondary mb-0">Lo último del catálogo</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
+              <h2 class="h5 card-title"><a class="stretched-link text-decoration-none" href="blogs.html">Blog</a></h2>
+              <p class="card-text text-body-secondary mb-0">Noticias del mundo gamer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container pb-5">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <p class="text-uppercase text-primary fw-semibold small mb-1">Tendencias</p>
+          <h2 class="mb-0">Juegos en tendencia</h2>
+        </div>
+      <a class="btn btn-outline-primary" href="producto.html">Ver todos</a>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=gta-6" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/gta6.jpg" class="card-img-top object-fit-cover" alt="Portada de Grand Theft Auto VI">
+            </div>
+          </a>
+          <div class="card-body">
+        <h3 class="h6 card-title mb-0">Reserva GTA 6</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=gta-6">Ver juego</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=resident-evil-requiem" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/resident-evil-requiem.jpg" class="card-img-top object-fit-cover" alt="Portada de Resident Evil Requiem">
+            </div>
+          </a>
+          <div class="card-body">
+        <h3 class="h6 card-title mb-0">Resident Evil Requiem</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=resident-evil-requiem">Ver juego</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=blood-of-dawnwalker" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/blood-of-dawnwalker.jpg" class="card-img-top object-fit-cover" alt="Portada de The Blood of Dawnwalker">
+            </div>
+          </a>
+          <div class="card-body">
+        <h3 class="h6 card-title mb-0">The Blood of Dawnwalker</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=blood-of-dawnwalker">Ver juego</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=subnautica-2" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/subnautica2.jpg" class="card-img-top object-fit-cover" alt="Portada de Subnautica 2">
+            </div>
+          </a>
+          <div class="card-body">
+        <h3 class="h6 card-title mb-0">Subnautica 2</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=subnautica-2">Ver juego</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="bg-body-tertiary py-5">
+      <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <p class="text-uppercase text-primary fw-semibold small mb-1">Lo más top</p>
+          <h2 class="mb-0">Más Jugados</h2>
+        </div>
+      <a class="btn btn-outline-primary" href="producto.html">Ver todos</a>
+      </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=warframe" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/warframe-hero.jpg" class="card-img-top object-fit-cover" alt="Portada de Warframe">
+            </div>
+          </a>
+          <div class="card-body">
+        <small class="text-body-secondary">Acción</small>
+        <h3 class="h6 card-title mb-0">Warframe</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=warframe">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=pubg-battlegrounds" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/pubg-battlegrounds-hero.jpg" class="card-img-top object-fit-cover" alt="Portada de PUBG Battlegrounds">
+            </div>
+          </a>
+          <div class="card-body">
+        <small class="text-body-secondary">Battle Royale</small>
+        <h3 class="h6 card-title mb-0">PUBG Battlegrounds</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=pubg-battlegrounds">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=rocket-league" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/rocket-league-hero.jpg" class="card-img-top object-fit-cover" alt="Portada de Rocket League">
+            </div>
+          </a>
+          <div class="card-body">
+        <small class="text-body-secondary">Deportes</small>
+        <h3 class="h6 card-title mb-0">Rocket League</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=rocket-league">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=dead-by-daylight" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="assets/images/dead-by-daylight-hero.jpg" class="card-img-top object-fit-cover" alt="Portada de Dead by Daylight">
+            </div>
+          </a>
+          <div class="card-body">
+        <small class="text-body-secondary">Terror</small>
+        <h3 class="h6 card-title mb-0">Dead by Daylight</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=dead-by-daylight">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=brawlhalla" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/291550/library_hero.jpg" class="card-img-top object-fit-cover" alt="Portada de Brawlhalla">
+            </div>
+          </a>
+          <div class="card-body">
+        <small class="text-body-secondary">Lucha</small>
+        <h3 class="h6 card-title mb-0">Brawlhalla</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=brawlhalla">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <a href="detalle-producto.html?id=hollow-knight" class="d-block">
+            <div class="ratio ratio-16x9">
+              <img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/367520/library_hero.jpg" class="card-img-top object-fit-cover" alt="Portada de Hollow Knight">
+            </div>
+          </a>
+          <div class="card-body">
+        <small class="text-body-secondary">Metroidvania</small>
+        <h3 class="h6 card-title mb-0">Hollow Knight</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=hollow-knight">Explorar</a>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <div class="text-center mb-4">
+        <p class="text-uppercase text-primary fw-semibold small mb-1">Categorías</p>
+        <h2>Categorías Principales</h2>
+      </div>
+      <div class="row row-cols-2 row-cols-lg-5 g-3">
+        <div class="col">
+          <div class="card text-bg-dark h-100">
+            <div class="ratio ratio-4x3">
+              <img src="assets/images/apex-legends.jpg" class="card-img object-fit-cover" alt="Categoría Acción">
+            </div>
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <h3 class="h6 card-title w-100 m-0 p-3 bg-dark bg-opacity-75"><a class="stretched-link link-light text-decoration-none" href="producto.html?filtro=acc">Acción</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark h-100">
+            <div class="ratio ratio-4x3">
+              <img src="assets/images/lost-ark.jpg" class="card-img object-fit-cover" alt="Categoría Aventura">
+            </div>
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <h3 class="h6 card-title w-100 m-0 p-3 bg-dark bg-opacity-75"><a class="stretched-link link-light text-decoration-none" href="producto.html?filtro=avn">Aventura</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark h-100">
+            <div class="ratio ratio-4x3">
+              <img src="assets/images/resident-evil-requiem.jpg" class="card-img object-fit-cover" alt="Categoría Terror">
+            </div>
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <h3 class="h6 card-title w-100 m-0 p-3 bg-dark bg-opacity-75"><a class="stretched-link link-light text-decoration-none" href="producto.html?filtro=hor">Terror</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark h-100">
+            <div class="ratio ratio-4x3">
+              <img src="assets/images/age-of-empires-4.jpg" class="card-img object-fit-cover" alt="Categoría Estrategia">
+            </div>
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <h3 class="h6 card-title w-100 m-0 p-3 bg-dark bg-opacity-75"><a class="stretched-link link-light text-decoration-none" href="producto.html?filtro=est">Estrategia</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark h-100">
+            <div class="ratio ratio-4x3">
+              <img src="assets/images/rocket-league.jpg" class="card-img object-fit-cover" alt="Categoría Simulación y deportes">
+            </div>
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <h3 class="h6 card-title w-100 m-0 p-3 bg-dark bg-opacity-75"><a class="stretched-link link-light text-decoration-none" href="producto.html?filtro=sim">Simulación y deportes</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <p class="text-uppercase text-info fw-semibold small mb-1">Nuestra Tienda</p>
+            <h2>¡Haz tu Pre-Compra y Obtén los Mejores Precios para Ti!</h2>
+            <p>Reserva tus juegos favoritos con anticipación y accede a descuentos exclusivos por tiempo limitado.</p>
+            <a class="btn btn-primary" href="producto.html">Comprar Ahora</a>
+          </div>
+          <div class="col-lg-6">
+            <p class="text-uppercase text-info fw-semibold small mb-1">Newsletter</p>
+            <h2>Obtén un 10% de Descuento en tu Primera Compra al Suscribirte a Nuestro Newsletter!</h2>
+            <form id="subscribe" action="#" novalidate>
+              <label for="exampleInputEmail1" class="visually-hidden">Correo para el newsletter</label>
+              <div class="input-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" name="correoNewsletter" autocomplete="email" placeholder="ejemplo@duoc.cl" required>
+                <button class="btn btn-primary" type="submit">Suscribirme Ahora</button>
+              </div>
+            </form>
+            <p id="subscribe-aviso" class="alert mt-3 mb-0" hidden></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
     <div class="container">
-        <div class="col-lg-12">
-            <p><a rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo. </a>Todos los derechos reservados.
-                Desarrollado por: <a rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares</a>,
-                <a rel="nofollow" href="https://github.com/Matyy98" target="_blank"> Matías Rodriguez</a> y
-                <a rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a></p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <h2 class="h5">Volvo</h2>
+          <p class="text-secondary mb-0">Tienda online de videojuegos digitales, con precios en pesos chilenos y entrega inmediata.</p>
         </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Tienda</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="producto.html">Todos los juegos</a></li>
+            <li><a class="link-light text-decoration-none" href="carrito.html">Carrito</a></li>
+            <li><a class="link-light text-decoration-none" href="blogs.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Ayuda</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="nosotros.html">Nosotros</a></li>
+            <li><a class="link-light text-decoration-none" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="h6 text-uppercase">Cuenta</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a class="link-light text-decoration-none" href="login.html">Iniciar sesión</a></li>
+            <li><a class="link-light text-decoration-none" href="registro.html">Registrarse</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="text-center text-secondary small mb-0">
+        <a class="link-secondary text-decoration-none" rel="nofollow" href="https://github.com/Volvo-Project" target="_blank">&copy; Volvo.</a>
+        Todos los derechos reservados. Desarrollado por:
+        <a class="link-secondary" rel="nofollow" href="https://github.com/neurott" target="_blank">Nicolás Olivares</a>,
+        <a class="link-secondary" rel="nofollow" href="https://github.com/Matyy98" target="_blank">Matías Rodriguez</a> y
+        <a class="link-secondary" rel="nofollow" href="https://github.com/EmilianoCerda" target="_blank">Emiliano Cerda</a>
+      </p>
     </div>
   </footer>
 
-  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/sesion.js"></script>
-
-
 </body>
 </html>

@@ -10,7 +10,6 @@ const productos = [
     esGratis: true,
     imagen: "assets/images/warframe-card.jpg",
     imagenDetalle: "https://dropreference-v3.s3.eu-west-3.amazonaws.com/prod/game-images/warframe_vertical.jpg",
-    posicionCard: "0% center",
     genero: "Acción, Cooperativo, Multijugador",
     etiquetas: "Ciencia ficción, Ninjas, Free to play",
     trailer: "https://www.youtube.com/embed/MsbL8lFHrZI",
@@ -129,7 +128,6 @@ const productos = [
     esGratis: false,
     imagen: "assets/images/apex-legends-card.jpg",
     imagenDetalle: "assets/images/apex-legends.jpg",
-    posicionCard: "80% center",
     genero: "Battle Royale, Shooter, Multijugador",
     etiquetas: "Equipos, Habilidades, Edición especial",
     trailer: "https://www.youtube.com/embed/oQtHENM_GZU",
@@ -149,7 +147,6 @@ const productos = [
     esGratis: false,
     imagen: "assets/images/sims4-card.jpg",
     imagenDetalle: "assets/images/sims4.jpg",
-    posicionCard: "10% center",
     genero: "Simulación, Vida, Un Jugador",
     etiquetas: "Construcción, Carreras profesionales, Expansión",
     trailer: "https://www.youtube.com/embed/0D5bRyZV_Dw",
@@ -188,7 +185,6 @@ const productos = [
     esGratis: false,
     imagen: "assets/images/destiny2-card.jpg",
     imagenDetalle: "assets/images/destiny2.jpg",
-    posicionCard: "65% center",
     genero: "Shooter, Ciencia Ficción, Multijugador",
     etiquetas: "Cooperativo, Incursiones, Expansión",
     trailer: "https://www.youtube.com/embed/hdWkpbPTpmE",
@@ -424,7 +420,6 @@ const productos = [
     esGratis: false,
     imagen: "assets/images/blood-of-dawnwalker.jpg",
     imagenDetalle: "assets/images/blood-of-dawnwalker.jpg",
-    posicionCard: "35% center",
     genero: "RPG, Acción, Un Jugador",
     etiquetas: "Fantasía oscura, Vampiros, Mundo abierto",
     trailer: "https://www.youtube.com/embed/Rc0zHeBUBCw",
@@ -457,6 +452,12 @@ const productos = [
   }
 ];
 
+// Sube hasta el catálogo dejando espacio para la barra de navegación fija
+function irAlCatalogo() {
+  const catalogo = document.querySelector('#catalogo-productos');
+  window.scrollTo({ top: catalogo.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+}
+
 function renderizarCatalogo() {
   const catalogo = document.querySelector('#catalogo-productos');
   const paginacion = document.querySelector('#paginacion-productos');
@@ -483,12 +484,12 @@ function renderizarCatalogo() {
 
     if (infoBusqueda) {
       infoBusqueda.innerHTML = `
-        <p class="busqueda-resultado">
+        <div class="alert alert-info">
           ${productosAMostrar.length > 0
             ? `Resultados para "<strong>${busquedaSegura}</strong>" (${productosAMostrar.length})`
             : `No encontramos resultados para "<strong>${busquedaSegura}</strong>"`}
-          — <a href="producto.html">ver catálogo completo</a>
-        </p>
+          — <a class="alert-link" href="producto.html">ver catálogo completo</a>
+        </div>
       `;
     }
   } else if (infoBusqueda) {
@@ -514,22 +515,26 @@ function renderizarCatalogo() {
 
   catalogo.innerHTML = productosDePagina.map((producto) => {
     const precio = producto.esGratis
-      ? '<span class="precio">Gratis</span>'
-      : `<span class="precio">$${producto.precio.toLocaleString('es-CL')}</span>`;
+      ? '<span class="badge text-bg-success position-absolute top-0 end-0 m-2 fs-6">Gratis</span>'
+      : `<span class="badge text-bg-warning position-absolute top-0 end-0 m-2 fs-6">$${producto.precio.toLocaleString('es-CL')}</span>`;
 
     return `
-      <div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items ${producto.filtro}">
-        <div class="item">
-          <div class="thumb">
-            <a href="detalle-producto.html?id=${producto.id}">
-              <img src="${producto.imagen}" alt="Portada de ${producto.nombre}"${producto.posicionCard ? ` style="object-position: ${producto.posicionCard};"` : ''}>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <div class="position-relative">
+            <a href="detalle-producto.html?id=${producto.id}" class="d-block">
+              <div class="ratio ratio-16x9">
+                <img src="${producto.imagen}" class="card-img-top object-fit-cover" alt="Portada de ${producto.nombre}">
+              </div>
             </a>
             ${precio}
           </div>
-          <div class="down-content">
-            <span class="category">${producto.categoria}</span>
-            <h4>${producto.nombre}</h4>
-            <a href="detalle-producto.html?id=${producto.id}"><i class="fa fa-shopping-bag"></i></a>
+          <div class="card-body">
+            <small class="text-body-secondary">${producto.categoria}</small>
+            <h3 class="h6 card-title mb-0">${producto.nombre}</h3>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-primary btn-sm w-100" href="detalle-producto.html?id=${producto.id}">Ver juego</a>
           </div>
         </div>
       </div>
@@ -546,8 +551,8 @@ function renderizarCatalogo() {
   ].filter(Boolean).join('&');
   const separadorParametros = parametrosPaginacion ? '&' : '';
   const crearEnlacePagina = (pagina, etiqueta, esActiva = false, deshabilitado = false) => `
-    <li class="${deshabilitado ? 'disabled' : ''}">
-      <a class="${esActiva ? 'is_active' : ''}" href="producto.html?pagina=${pagina}${separadorParametros}${parametrosPaginacion}" data-pagina="${pagina}"${esActiva ? ' aria-current="page"' : ''}${deshabilitado ? ' aria-disabled="true"' : ''}>${etiqueta}</a>
+    <li class="page-item${deshabilitado ? ' disabled' : ''}${esActiva ? ' active' : ''}">
+      <a class="page-link" href="producto.html?pagina=${pagina}${separadorParametros}${parametrosPaginacion}" data-pagina="${pagina}"${esActiva ? ' aria-current="page"' : ''}${deshabilitado ? ' aria-disabled="true"' : ''}>${etiqueta}</a>
     </li>
   `;
 
@@ -567,17 +572,23 @@ function renderizarCatalogo() {
         const nuevaUrl = new URL(enlace.href, window.location.href);
         window.history.pushState({}, '', nuevaUrl);
         renderizarCatalogo();
-        window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
+        irAlCatalogo();
       }
     });
   });
 
   // Solo marcamos cuál está activo: los botones de filtro son HTML fijo,
   // así que sus listeners se registran una sola vez en activarFiltros().
-  const filtros = document.querySelector('.trending-filter');
+  const filtros = document.querySelector('#filtros-categorias');
   if (filtros) {
     filtros.querySelectorAll('a[data-filter]').forEach((enlace) => {
-      enlace.classList.toggle('is_active', enlace.dataset.filter === filtroSolicitado);
+      const activo = enlace.dataset.filter === filtroSolicitado;
+      enlace.classList.toggle('active', activo);
+      if (activo) {
+        enlace.setAttribute('aria-current', 'true');
+      } else {
+        enlace.removeAttribute('aria-current');
+      }
     });
   }
 }
@@ -585,7 +596,7 @@ function renderizarCatalogo() {
 // Se llama UNA vez al cargar la página. Si esto viviera dentro de
 // renderizarCatalogo() se acumularía un listener nuevo en cada render.
 function activarFiltros() {
-  const filtros = document.querySelector('.trending-filter');
+  const filtros = document.querySelector('#filtros-categorias');
 
   if (!filtros) {
     return;
@@ -603,7 +614,7 @@ function activarFiltros() {
       }
       window.history.pushState({}, '', nuevaUrl);
       renderizarCatalogo();
-      window.scrollTo({ top: document.querySelector('.trending').offsetTop - 80, behavior: 'smooth' });
+      irAlCatalogo();
     });
   });
 }

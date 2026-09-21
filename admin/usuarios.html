@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvo | Admin | Usuarios</title>
-    <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
-
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-
-    <script src="../assets/js/guardia-admin.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volvo | Admin | Usuarios</title>
+  <meta name="description" content="Volvo, tienda online de videojuegos: catálogo, ofertas y novedades.">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <script src="../assets/js/guardia-admin.js"></script>
 </head>
-<body class="admin-page">
-    <header class="admin-header">
-      <a class="admin-marca" href="home.html">Volvo <span>Admin</span></a>
-      <p class="admin-sesion" id="admin-sesion"></p>
-    </header>
-    <div class="admin-layout">
-        <aside class="admin-sidebar">
-            <nav>
-                <ul>
-                    <li><a href="home.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="usuarios.html">Usuarios</a></li>
-                    <li><a href="../index.html">Volver a la tienda</a></li>
-                    <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="admin-content">
-            <h1>Usuarios</h1>
-            <a href="usuario-form.html">Nuevo usuario</a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Run</th>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Correo</th>
-                        <th>Tipo Usuario</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="usuarios-cuerpo">
-
-                </tbody>
-            </table>
-        </main>
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-dark bg-dark px-3">
+      <a class="navbar-brand" href="home.html">Volvo <span class="text-info">Admin</span></a>
+      <span class="navbar-text" id="admin-sesion"></span>
+    </nav>
+  </header>
+  <div class="container-fluid flex-grow-1">
+    <div class="row">
+      <aside class="col-md-3 col-lg-2 bg-body-tertiary py-3">
+        <nav aria-label="Menú del panel">
+          <ul class="nav nav-pills flex-column">
+          <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="usuarios.html" aria-current="page">Usuarios</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Volver a la tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="cerrar-sesion">Cerrar sesión</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="col-md-9 col-lg-10 p-4">
+        <h1>Usuarios</h1>
+        <a class="btn btn-primary my-3" href="usuario-form.html">Nuevo usuario</a>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+              <th scope="col">Run</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Tipo Usuario</th>
+              <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="usuarios-cuerpo"></tbody>
+          </table>
+        </div>
+      </main>
     </div>
-    <footer class="admin-footer">
-        <p>Volvo · Panel de administración · 2026</p>
-    </footer>
-    <script src="../assets/js/admin-usuarios.js"></script>
+  </div>
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0 small">Volvo · Panel de administración · 2026</p>
+  </footer>
+  <script src="../assets/js/admin-usuarios.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
